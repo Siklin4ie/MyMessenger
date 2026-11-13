@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import smtplib
 import random
@@ -7,8 +8,8 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # --- НАСТРОЙКИ ТВОЕЙ ПОЧТЫ ДЛЯ ОТПРАВКИ КОДОВ ---
-SMTP_EMAIL = "SMPT_EMAIL"
-SMTP_PASSWORD = "SMPT_PASSWORD"
+SMTP_EMAIL = os.environ.get ("SMPT_EMAIL")
+SMTP_PASSWORD = os.environ.get ("SMPT_PASSWORD")
 # ------------------------------------------------
 
 # Временное хранилище кодов подтверждения: {email: code}
